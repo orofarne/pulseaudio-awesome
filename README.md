@@ -6,10 +6,10 @@ Used code from [awesome wiki](http://awesome.naquadah.org/wiki/Roultabie_volume_
 Usage
 =====
 
-    -- PulseAudio
     require("pulseaudio")
+
     ...
-    -- {{{ PulseAudio Widget
+
     volumewidget = widget({
         type = "textbox",
         name = "volumewidget",
@@ -20,7 +20,6 @@ Usage
     volumetimer = timer({ timeout = 30 })
     volumetimer:add_signal("timeout", function() volumewidget.text = pulseaudio.volumeInfo() end)
     volumetimer:start()
-    -- }}}
 
     ...
 
