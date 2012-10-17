@@ -1,7 +1,7 @@
 About
 =====
 
-Used code from [awesome wiki](http://awesome.naquadah.org/wiki/Roultabie_volume_widget_for_PulseAudio)
+Based on code from [awesome wiki](http://awesome.naquadah.org/wiki/Roultabie_volume_widget_for_PulseAudio)
 
 Usage
 =====
