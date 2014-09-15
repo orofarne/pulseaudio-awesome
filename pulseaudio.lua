@@ -10,26 +10,30 @@ function volumeUp()
     local step = 655 * 5
     local f = io.popen("pacmd dump |grep set-sink-volume")
     local v = f:read()
-    local volume = tonumber(string.sub(v, string.find(v, 'x') - 1))
-    local newVolume = volume + step
-    if newVolume > 65536 then
-        newVolume = 65536
-    end
-    io.popen("pacmd set-sink-volume 0 "..newVolume)
     f:close()
+    if v ~= nil then
+      local volume = tonumber(string.sub(v, string.find(v, 'x') - 1))
+      local newVolume = volume + step
+      if newVolume > 65536 then
+          newVolume = 65536
+      end
+      io.popen("pacmd set-sink-volume 0 "..newVolume)
+    end
 end
 
 function volumeDown()
     local step = 655 * 5
     local f = io.popen("pacmd dump |grep set-sink-volume")
     local v = f:read()
-    local volume = tonumber(string.sub(v, string.find(v, 'x') - 1))
-    local newVolume = volume - step
-    if newVolume < 0 then
-        newVolume = 0
-    end
-    io.popen("pacmd set-sink-volume 0 "..newVolume)
     f:close()
+    if v ~= nil then
+      local volume = tonumber(string.sub(v, string.find(v, 'x') - 1))
+      local newVolume = volume - step
+      if newVolume < 0 then
+          newVolume = 0
+      end
+      io.popen("pacmd set-sink-volume 0 "..newVolume)
+    end
 end
 
 function volumeMute()
